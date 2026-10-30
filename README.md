@@ -4,6 +4,8 @@ Project mẫu JavaFX chạy bằng Gradle. Bạn **không cần cài Gradle** v�
 
 Phiên bản: JDK 21, JavaFX 21.0.13, Gradle 9.8.2 (tự tải qua `gradlew`).
 
+**Tài liệu học JavaFX** (các thẻ cơ bản → thực hành → bài tập → áp dụng vào bài QuanLySanPham): sau khi clone, bấm đúp file [`huong-dan-javafx.html`](huong-dan-javafx.html) để mở bằng trình duyệt.
+
 ## 1. Cài đặt (chỉ làm một lần)
 
 1. **JDK 21**: vào [adoptium.net](https://adoptium.net/temurin/releases/?version=21), tải bản **Windows x64 / JDK / .msi** (máy Mac chọn bản macOS `.pkg`). Mở file vừa tải, bấm **Next** đến hết.
