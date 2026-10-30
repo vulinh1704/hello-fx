@@ -16,8 +16,7 @@ Kiểm tra: mở terminal **mới** và gõ `java -version`. Nếu thấy dòng 
 
 ## 2. Tải project
 
-1. Mở email mời từ GitHub và bấm **Accept invitation**. Repo này là private, nên phải chấp nhận lời mời thì mới clone được.
-2. Clone repo rồi mở bằng VS Code:
+1. Clone repo rồi mở bằng VS Code:
 
    ```powershell
    git clone https://github.com/vulinh1704/hello-fx.git
@@ -25,8 +24,8 @@ Kiểm tra: mở terminal **mới** và gõ `java -version`. Nếu thấy dòng 
    code .
    ```
 
-   Lần đầu clone, Git sẽ mở cửa sổ để bạn đăng nhập GitHub. Nếu lệnh `code .` không chạy được, hãy mở VS Code rồi chọn **File → Open Folder → hello-fx**.
-3. Đợi khoảng 1 phút cho thanh trạng thái ở dưới cùng VS Code báo đã tải xong project Java.
+   Nếu lệnh `code .` không chạy được, hãy mở VS Code rồi chọn **File → Open Folder → hello-fx**.
+2. Đợi khoảng 1 phút cho thanh trạng thái ở dưới cùng VS Code báo đã tải xong project Java.
 
 Khi giáo viên cập nhật project, chạy `git pull` để lấy bản mới.
 
@@ -73,5 +72,5 @@ Có ba chỗ trong `main.fxml` phải khớp với code Java:
 | `'gradlew' is not recognized` | Gõ đúng `.\gradlew run` (có `.\` ở đầu). |
 | Không thấy chữ Run, code báo đỏ khắp nơi | Bạn đã mở sai thư mục. Hãy mở thư mục `hello-fx` (thư mục có file `build.gradle`), rồi đợi VS Code tải project xong. |
 | Đã mở đúng thư mục mà vẫn báo đỏ | Nhấn `Ctrl+Shift+P`, chọn **Java: Clean Java Language Server Workspace**, rồi bấm **Restart**. |
-| `git clone` báo `Repository not found` | Bạn chưa chấp nhận lời mời, hoặc Git đang đăng nhập bằng một tài khoản GitHub khác. Hãy kiểm tra email từ GitHub. |
+| `git clone` báo `Repository not found` | Đường dẫn bị gõ sai. Hãy copy đúng lệnh ở mục 2. |
 | `LoadException` khi chạy | Tên trong `main.fxml` không khớp với code Java (xem mục 4). |
