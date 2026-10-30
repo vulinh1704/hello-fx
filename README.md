@@ -43,36 +43,40 @@ Khi giáo viên cập nhật project, chạy `git pull` để lấy bản mới.
 
 Máy Mac thì gõ `./gradlew run`.
 
-Lần chạy đầu tiên cần có mạng. Máy sẽ tự tải Gradle và JavaFX về, mất khoảng 1–2 phút. Khi cửa sổ app hiện ra, hãy gõ tên của bạn rồi bấm **Chào**.
+Lần chạy đầu tiên cần có mạng. Máy sẽ tự tải Gradle và JavaFX về, mất khoảng 1–2 phút. Khi cửa sổ trống có tiêu đề **Demo JavaFX** hiện ra là đã chạy thành công.
 
 > Khi chạy theo cách 1, terminal sẽ in một dòng `WARNING: Unsupported JavaFX configuration...`. Đây là chuyện bình thường, bạn cứ bỏ qua.
 >
-> **Đừng** bấm Run trong `App.java`, vì app sẽ báo lỗi `JavaFX runtime components are missing`. Hãy luôn chạy từ `Launcher.java`.
+> **Đừng** bấm Run trong `Demo.java`, vì app sẽ báo lỗi `JavaFX runtime components are missing`. Hãy luôn chạy từ `Launcher.java`.
 
-## 4. Các file trong project
+## 4. Viết code demo
+
+Mở `src/main/java/Demo.java` và viết code vào giữa hai dòng `BẮT ĐẦU` và `KẾT THÚC`. Muốn thẻ nào hiện lên cửa sổ thì đặt nó vào hộp `root`:
+
+```java
+Label hello = new Label("Xin chào!");
+root.getChildren().add(hello);
+```
+
+Nếu tên thẻ (`Label`, `Button`…) báo đỏ vì chưa import, nhấn `Shift+Alt+O` để VS Code tự thêm. Nếu được hỏi chọn, chọn dòng bắt đầu bằng `javafx`, không chọn `java.awt`.
+
+Các thẻ, bài thực hành và bài tập có trong file `huong-dan-javafx.html`.
 
 | File | Vai trò |
 | --- | --- |
-| `src/main/java/Launcher.java` | Điểm bắt đầu khi bấm Run trong VS Code |
-| `src/main/java/App.java` | Mở cửa sổ và nạp giao diện từ `main.fxml` |
-| `src/main/resources/main.fxml` | Giao diện: chữ, ô nhập tên, nút Chào |
-| `src/main/java/MainController.java` | Xử lý khi bấm nút Chào |
+| `src/main/java/Launcher.java` | Bấm Run ở đây để chạy app |
+| `src/main/java/Demo.java` | Khung demo: viết code vào chỗ đánh dấu |
 | `build.gradle` | Khai báo thư viện JavaFX, không cần sửa |
-
-Có ba chỗ trong `main.fxml` phải khớp với code Java:
-
-- `fx:controller="MainController"` trỏ tới lớp `MainController`
-- mỗi `fx:id="..."` trùng tên với một biến có `@FXML` trong `MainController`
-- `onAction="#handleGreet"` trùng tên với method `handleGreet()`
 
 ## 5. Lỗi thường gặp
 
 | Lỗi | Cách sửa |
 | --- | --- |
 | `java is not recognized` | Tắt hẳn VS Code (**File → Exit**) rồi mở lại. Nếu vẫn lỗi, cài lại JDK. |
-| `JavaFX runtime components are missing` | Bạn đang bấm Run trong `App.java`. Hãy chạy từ `Launcher.java`. |
+| `JavaFX runtime components are missing` | Bạn đang bấm Run trong `Demo.java`. Hãy chạy từ `Launcher.java`. |
 | `'gradlew' is not recognized` | Gõ đúng `.\gradlew run` (có `.\` ở đầu). |
 | Không thấy chữ Run, code báo đỏ khắp nơi | Bạn đã mở sai thư mục. Hãy mở thư mục `hello-fx` (thư mục có file `build.gradle`), rồi đợi VS Code tải project xong. |
 | Đã mở đúng thư mục mà vẫn báo đỏ | Nhấn `Ctrl+Shift+P`, chọn **Java: Clean Java Language Server Workspace**, rồi bấm **Restart**. |
 | `git clone` báo `Repository not found` | Đường dẫn bị gõ sai. Hãy copy đúng lệnh ở mục 2. |
-| `LoadException` khi chạy | Tên trong `main.fxml` không khớp với code Java (xem mục 4). |
+| `cannot find symbol` ở `Label`, `Button`… | Thiếu import. Nhấn `Shift+Alt+O` (xem mục 4). |
+| Thẻ không hiện trên cửa sổ | Quên đặt vào hộp: `root.getChildren().add(...)`. |

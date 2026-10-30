@@ -213,29 +213,27 @@
   <div class="head"><span class="badge">1.0</span><h3>Khung chương trình</h3><span class="tag">viết code vào đâu?</span></div>
   <div class="split">
     <div>
-      <script type="text/plain" data-lang="java" data-file="Practice.java">
+      <script type="text/plain" data-lang="java" data-file="src/main/java/Demo.java">
 import javafx.application.Application;
 import javafx.geometry.Insets;
-import javafx.geometry.Pos;
 import javafx.scene.Scene;
-import javafx.scene.control.*;
-import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.layout.*;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
-public class Practice extends Application {
+public class Demo extends Application {
 
     @Override
     public void start(Stage stage) {
         VBox root = new VBox(10); // hộp chứa: xếp các thẻ từ trên xuống, cách nhau 10px
         root.setPadding(new Insets(20));
 
-        // ===== BẮT ĐẦU: dán code thực hành vào đây =====
+        // ===== BẮT ĐẦU: viết code demo vào đây =====
 
+        
         // ===== KẾT THÚC =====
 
         stage.setScene(new Scene(root, 520, 400));
-        stage.setTitle("Thực hành JavaFX");
+        stage.setTitle("Demo JavaFX");
         stage.show();
     }
 
@@ -243,11 +241,11 @@ public class Practice extends Application {
         launch(args);
     }
 }</script>
-      <script type="text/plain" data-lang="java" data-file="PracticeLauncher.java">
-public class PracticeLauncher {
+      <script type="text/plain" data-lang="java" data-file="src/main/java/Launcher.java">
+public class Launcher {
 
     public static void main(String[] args) {
-        Practice.main(args);
+        Demo.main(args);
     }
 }</script>
     </div>
@@ -260,9 +258,10 @@ public class PracticeLauncher {
       </ul>
       <h5>Cách dùng</h5>
       <ul>
-        <li>Mọi ví dụ ở Phần 1 và 2 đều dán vào <b>đúng một chỗ</b>: giữa 2 dòng <code>BẮT ĐẦU</code> và <code>KẾT THÚC</code>.</li>
-        <li>Bấm <b>Run</b> ở <code>PracticeLauncher.java</code>, không chạy thẳng <code>Practice.java</code> (sẽ lỗi <code>JavaFX runtime components are missing</code>).</li>
-        <li>Mấy dòng <code>import</code> bị gạch vàng lúc đầu là bình thường; dán code vào là hết.</li>
+        <li>Hai file này có sẵn trong project <b>hello-fx</b>.</li>
+        <li>Mọi ví dụ ở Phần 1 và 2 đều viết vào <b>đúng một chỗ</b>: giữa 2 dòng <code>BẮT ĐẦU</code> và <code>KẾT THÚC</code>.</li>
+        <li>Bấm <b>Run</b> ở <code>Launcher.java</code>, không chạy thẳng <code>Demo.java</code> (sẽ lỗi <code>JavaFX runtime components are missing</code>).</li>
+        <li>Dán code xong, tên thẻ (<code>Label</code>, <code>Button</code>…) báo đỏ vì chưa import: nhấn <code>Shift+Alt+O</code> (VS Code) hoặc <code>Alt+Enter</code> (IntelliJ) để tự thêm. Nếu được hỏi chọn, chọn dòng bắt đầu bằng <b>javafx</b>, không chọn <b>java.awt</b>.</li>
       </ul>
     </div>
   </div>
@@ -1134,7 +1133,7 @@ public class App extends Application {
     ├── LoginView.java
     ├── MainView.java
     └── ProductView.java</script>
-      <div class="note warn"><p>Luôn chạy <code>Main.java</code>, giống <code>PracticeLauncher</code> ở Phần 1.</p></div>
+      <div class="note warn"><p>Luôn chạy <code>Main.java</code>, giống <code>Launcher.java</code> ở Phần 1.</p></div>
     </div>
   </div>
 
@@ -1602,7 +1601,9 @@ public class ProductView {
 <div class="card">
   <div class="table-wrap"><table>
     <tr><th>Hiện tượng</th><th>Cách sửa</th></tr>
-    <tr><td><code>JavaFX runtime components are missing</code></td><td>Đang chạy lớp <code>extends Application</code>. Hãy chạy lớp Launcher (<code>PracticeLauncher</code>, hoặc <code>Main</code> trong project).</td></tr>
+    <tr><td><code>JavaFX runtime components are missing</code></td><td>Đang chạy lớp <code>extends Application</code>. Hãy chạy <code>Launcher.java</code> (hoặc <code>Main.java</code> trong project QuanLySanPham).</td></tr>
+    <tr><td><code>cannot find symbol</code> ở <code>Label</code>, <code>Button</code>…</td><td>Thiếu import. Nhấn <code>Shift+Alt+O</code> (VS Code) hoặc <code>Alt+Enter</code> (IntelliJ).</td></tr>
+    <tr><td><code>Label cannot be converted to Node</code>, hoặc VS Code báo <code>is not applicable for the arguments (Label)</code></td><td>Import nhầm gói <code>java.awt</code>. Sửa thành <code>import javafx.scene.control.Label;</code> (tương tự với <code>Button</code>, <code>TextField</code>).</td></tr>
     <tr><td>Thẻ không hiện trên màn hình</td><td>Quên đặt vào hộp: <code>root.getChildren().add(...)</code>.</td></tr>
     <tr><td>Bấm nút không có gì xảy ra</td><td>Quên viết <code>setOnAction</code> cho nút đó.</td></tr>
     <tr><td>Một cột trong bảng trống trơn</td><td>Chữ trong <code>PropertyValueFactory</code> không khớp getter: <code>"name"</code> ↔ <code>getName()</code>.</td></tr>
