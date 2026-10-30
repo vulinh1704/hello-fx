@@ -16,13 +16,19 @@ Kiểm tra: mở terminal **mới** và gõ `java -version`. Nếu thấy dòng 
 
 ## 2. Tải project
 
-1. Mở email mời từ GitHub và bấm **Accept invitation**. Repo này là private, nên phải chấp nhận lời mời thì mới xem được.
-2. Trên trang repo, bấm nút xanh **Code → Download ZIP**, rồi giải nén file vừa tải.
-3. Trong VS Code, chọn **File → Open Folder** và chọn **thư mục chứa file `build.gradle`**.
-   - Khi giải nén, Windows thường tạo hai thư mục lồng nhau `hello-fx-main\hello-fx-main`. Hãy chọn thư mục **bên trong**.
-4. Đợi khoảng 1 phút cho thanh trạng thái ở dưới cùng VS Code báo đã tải xong project Java.
+1. Mở email mời từ GitHub và bấm **Accept invitation**. Repo này là private, nên phải chấp nhận lời mời thì mới clone được.
+2. Clone repo rồi mở bằng VS Code:
 
-Nếu đã biết dùng git, bạn có thể chạy `git clone https://github.com/vulinh1704/hello-fx.git` thay cho bước 2.
+   ```powershell
+   git clone https://github.com/vulinh1704/hello-fx.git
+   cd hello-fx
+   code .
+   ```
+
+   Lần đầu clone, Git sẽ mở cửa sổ để bạn đăng nhập GitHub. Nếu lệnh `code .` không chạy được, hãy mở VS Code rồi chọn **File → Open Folder → hello-fx**.
+3. Đợi khoảng 1 phút cho thanh trạng thái ở dưới cùng VS Code báo đã tải xong project Java.
+
+Khi giáo viên cập nhật project, chạy `git pull` để lấy bản mới.
 
 ## 3. Chạy app
 
@@ -65,7 +71,7 @@ Có ba chỗ trong `main.fxml` phải khớp với code Java:
 | `java is not recognized` | Tắt hẳn VS Code (**File → Exit**) rồi mở lại. Nếu vẫn lỗi, cài lại JDK. |
 | `JavaFX runtime components are missing` | Bạn đang bấm Run trong `App.java`. Hãy chạy từ `Launcher.java`. |
 | `'gradlew' is not recognized` | Gõ đúng `.\gradlew run` (có `.\` ở đầu). |
-| Không thấy chữ Run, code báo đỏ khắp nơi | Bạn đã mở sai thư mục. Hãy mở thư mục có file `build.gradle`, rồi đợi VS Code tải project xong. |
+| Không thấy chữ Run, code báo đỏ khắp nơi | Bạn đã mở sai thư mục. Hãy mở thư mục `hello-fx` (thư mục có file `build.gradle`), rồi đợi VS Code tải project xong. |
 | Đã mở đúng thư mục mà vẫn báo đỏ | Nhấn `Ctrl+Shift+P`, chọn **Java: Clean Java Language Server Workspace**, rồi bấm **Restart**. |
-| Mở trang repo bị lỗi 404 | Bạn chưa chấp nhận lời mời. Hãy kiểm tra email từ GitHub. |
+| `git clone` báo `Repository not found` | Bạn chưa chấp nhận lời mời, hoặc Git đang đăng nhập bằng một tài khoản GitHub khác. Hãy kiểm tra email từ GitHub. |
 | `LoadException` khi chạy | Tên trong `main.fxml` không khớp với code Java (xem mục 4). |
